@@ -27,3 +27,9 @@
  CONSTRAINT FK_MANUFACTURERID FOREIGN KEY (manufacturer) REFERENCES manufacturer(id);
  CONSTRAINT FK_LOCATIONID FOREIGN KEY (location) REFERENCES location(id);
  );
+
+ SELECT records.record_id, category.categoryName, manufacturer.companyName, records.model, records.serial, records.purchase_date, records.cost, location.locationName, records.sub_location 
+ FROM ((
+   (records INNER JOIN category ON records.category = category.id) 
+   INNER JOIN manufacturer ON records.manufacturer = manufacturer.id) 
+   INNER JOIN location ON records.location = location.id);
