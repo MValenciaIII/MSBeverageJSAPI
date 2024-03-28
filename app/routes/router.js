@@ -10,6 +10,7 @@ const router = express.Router()
 //* ex. http://localhost:4001/api/destinations
 router.use('/records', require('./api/recordsroute'));
 
+router.use('/category', require('./api/categoryrouter'))
 
 
 module.exports = router;
