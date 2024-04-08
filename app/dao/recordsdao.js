@@ -43,7 +43,41 @@ class RecordsDao {
  
     }
 
+    updateById(req, res) {
 
+        let fields = Object.keys(req.body)
+
+        let values = Object.values(req.body)
+
+
+        if (!req.body.record_id) {
+            res.json({
+              error: true,
+              message: 'Missing ID',
+            });
+          } else if (fields.length == 0) {
+            res.json({
+              error: true,
+              message: 'No fields to update',
+            });
+          }
+
+        let sql = `UPDATE records set ${fields.join('=?,')}=? WHERE record_id = ?`
+ 
+        //CREATE THE POOL.QUERY
+        this.pool.query(sql, [...values, req.body.record_id], (err, rows) => {
+            //... means SPREAD. It takes values from an array (in this instance).
+            //did this method because, cant send id in body of values. if we didnt use params, then id would have to be passed in last. sent id as a "url param" and that seperated id for the body content.
+            if (err) {
+              res.json({
+                error: true,
+                message: err,
+              });
+            }
+            res.json(rows);
+          });
+ 
+    }
    
     
 }

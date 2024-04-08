@@ -24,9 +24,9 @@
  location INT NOT NULL, 
  sub_location VARCHAR(255),
  CONSTRAINT FK_CATEGORYID FOREIGN KEY (category) REFERENCES category(id),
- CONSTRAINT FK_MANUFACTURERID FOREIGN KEY (manufacturer) REFERENCES manufacturer(id);
- CONSTRAINT FK_LOCATIONID FOREIGN KEY (location) REFERENCES location(id);
- );
+ CONSTRAINT FK_MANUFACTURERID FOREIGN KEY (manufacturer) REFERENCES manufacturer(id),
+ CONSTRAINT FK_LOCATIONID FOREIGN KEY (location) REFERENCES location(id)
+  );
 
  SELECT records.record_id, category.categoryName, manufacturer.companyName, records.model, records.serial, records.purchase_date, records.cost, location.locationName, records.sub_location 
  FROM ((

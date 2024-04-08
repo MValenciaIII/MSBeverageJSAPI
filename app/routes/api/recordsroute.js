@@ -17,6 +17,10 @@ router.post('/recordscreate', (req, res) => {
     dao.postRecord(req, res);
 })
 
+router.post('/modifyid', (req, res) => {
+    dao.updateById(req,res);
+})
+
 
 
 module.exports = router;
