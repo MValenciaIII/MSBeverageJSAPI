@@ -26,7 +26,7 @@ class CategoryDao {
         let values = Object.values(req.body)
 
 
-        let sql = `INSERT INTO categroy (${fields.join(',')}) VALUES (${Array(values.length).fill('?') .join(',')})`
+        let sql = `INSERT INTO category (${fields.join(',')}) VALUES (${Array(values.length).fill('?') .join(',')})`
  
         //CREATE THE POOL.QUERY
         pool.query(sql, values, (err, rows) => {
