@@ -21,12 +21,12 @@ class CategoryDao {
 
     postCategory(req, res) {
 
-        let fields = Object.keys(req.body)
+        // let fields = Object.keys(req.body)
 
-        let values = Object.values(req.body)
+        let values = req.query.categoryName
+        console.log(values)
 
-
-        let sql = `INSERT INTO category (${fields.join(',')}) VALUES (${Array(values.length).fill('?') .join(',')})`
+        let sql = `INSERT INTO category (categoryName) VALUES (${values})`
  
         //CREATE THE POOL.QUERY
         pool.query(sql, values, (err, rows) => {
