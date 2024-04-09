@@ -27,7 +27,7 @@ class RecordsDao {
 
     postRecord(req, res) {
 
-        let fields = Object.keys(req.body)
+       
 
         let values = Object.values(req.body)
 
