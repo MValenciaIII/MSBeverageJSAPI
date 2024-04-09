@@ -23,7 +23,7 @@ class CategoryDao {
 
         // let fields = Object.keys(req.body)
 
-        let values = req.param.categoryName
+        let values = req.query.categoryName
         console.log(values)
 
         let sql = `INSERT INTO category (categoryName) VALUES (${values})`
