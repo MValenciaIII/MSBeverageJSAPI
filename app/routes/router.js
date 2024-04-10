@@ -12,5 +12,7 @@ router.use('/records', require('./api/recordsroute'));
 
 router.use('/category', require('./api/categoryrouter'))
 
+router.use('/location', require('./api/locationrouter'))
 
+router.use('/manufacturer', require('./api/manufacturerrouter'))
 module.exports = router;
