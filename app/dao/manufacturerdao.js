@@ -3,7 +3,7 @@ const pool = require('../config/dbconfig');
 
 
 
-class CategoryDao {
+class ManufacturerDao {
 
 
     constructor() {
@@ -12,14 +12,14 @@ class CategoryDao {
 
     //? FIND ALL CATEGORIES
     findAll(req, res) {
-        pool.query('SELECT * FROM category', (err, rows, fields) => {
+        pool.query('SELECT * FROM manufacturer', (err, rows, fields) => {
             console.log(rows)
             res.send(rows)
         })
     }
 
 
-    postCategory(req, res) {
+    postManufacturer(req, res) {
 
         let fields = Object.keys(req.body)
 
@@ -28,7 +28,7 @@ class CategoryDao {
         console.log(fields)
         console.log(values)
         
-        let sql = `INSERT INTO category (${fields}) VALUES (\"${values}\")`
+        let sql = `INSERT INTO manufacturer (${fields}) VALUES (\"${values}\")`
         console.log(sql)
         //CREATE THE POOL.QUERY
         pool.query(sql, values, (err, rows) => {
@@ -45,4 +45,4 @@ class CategoryDao {
 }
 
 
-module.exports = CategoryDao;
+module.exports = ManufacturerDao;
