@@ -1,5 +1,5 @@
 //? IMPORTING MYSQL PACKAGE
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 //? CREATE THE CONNECTION INFORMATION
 const pool = mysql.createPool({
@@ -10,11 +10,13 @@ const pool = mysql.createPool({
     database:'railway'
 });
 
+
 //? THIS IS MAKING our "pool" VARIABLE have access everywhere.
 module.exports = pool;
 //* THIS ACTUALLY STARTS THE MYSQL DATABASE CONNECTION
 //? We making err catches if something goes wrong. 
 pool.getConnection((err, connection) => {
+    console.log(err, connection)
     if (err) {
         if(err.code === 'PROTOCOL_CONNECTION_LOST') {
             console.error('Database connection was closed')
