@@ -3,10 +3,11 @@ const mysql = require('mysql')
 
 //? CREATE THE CONNECTION INFORMATION
 const pool = mysql.createPool({
-    host:'localhost',
-    port:'3306',
+    host:'roundhouse.proxy.rlwy.net',
+    port:'44218',
     user:'root',
-    database:'msbeverage'
+    password:'qxfbxZKuSDXmtkwhPhFVuvfzTKyyrDlZ',
+    database:'railway'
 });
 
 //? THIS IS MAKING our "pool" VARIABLE have access everywhere.
