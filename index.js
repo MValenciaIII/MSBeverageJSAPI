@@ -3,7 +3,7 @@ const express = require('express');
 //?The variable we'll call in order to use an EXPRESS method/function.
 const app = express();
 //* The localhost port we'll use.
-const port = 4001;
+const port = process.env.NODE_ENV == 'production' ? process.env.PORT : 4001;
 //* IMPORT OUR router.js CODE
 const router = require('./app/routes/router')
 

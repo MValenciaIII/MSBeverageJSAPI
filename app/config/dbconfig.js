@@ -1,12 +1,13 @@
 //? IMPORTING MYSQL PACKAGE
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 //? CREATE THE CONNECTION INFORMATION
 const pool = mysql.createPool({
-    host:'localhost',
-    port:'3306',
+    host:'viaduct.proxy.rlwy.net',
+    port:'58524',
     user:'root',
-    database:'msbeverage'
+    password: 'HriOZDJRwNbkFZkEuYTFBCxtqlWlESBe',
+    database:'railway'
 });
 
 //? THIS IS MAKING our "pool" VARIABLE have access everywhere.
