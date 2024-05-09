@@ -7,7 +7,8 @@ const pool = mysql.createPool({
     port:'58524',
     user:'root',
     password: 'HriOZDJRwNbkFZkEuYTFBCxtqlWlESBe',
-    database:'railway'
+    database:'railway',
+    decimalNumbers: true
 });
 
 //? THIS IS MAKING our "pool" VARIABLE have access everywhere.
