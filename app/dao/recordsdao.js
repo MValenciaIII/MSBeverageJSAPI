@@ -19,7 +19,7 @@ class RecordsDao {
     }
 
     findAllFK(req, res) {
-        pool.query(' SELECT records.record_id, category.categoryName, manufacturer.companyName, records.model, records.serial, records.purchase_date, records.cost, location.locationName, records.sub_location FROM (((records INNER JOIN category ON records.category = category.id) INNER JOIN manufacturer ON records.manufacturer = manufacturer.id) INNER JOIN location ON records.location = location.id);', (err, rows, fields) => {
+        pool.query(' SELECT records.record_id, category.categoryName, manufacturer.companyName, records.model, records.serial, records.purchase_date, records.cost, location.locationName, records.sub_location, records.is_deleted FROM (((records INNER JOIN category ON records.category = category.id) INNER JOIN manufacturer ON records.manufacturer = manufacturer.id) INNER JOIN location ON records.location = location.id);', (err, rows, fields) => {
             console.log(rows)
             res.send(rows)
         });
